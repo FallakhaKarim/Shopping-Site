@@ -32,3 +32,22 @@ function startTimer() {
 function autoSlide() {
   plusSlides(1); // Simulate a click on the next arrow
 }
+
+
+function openModal(modalUrl) {
+  fetch(modalUrl)
+      .then(response => response.text())
+      .then(html => {
+          let modalDiv = document.createElement('div');
+          modalDiv.innerHTML = html;
+          document.body.appendChild(modalDiv);
+          modalDiv.querySelector('.modal').style.display = 'flex';
+      })
+      .catch(error => {
+          console.error('Error loading modal:', error);
+      });
+}
+
+function closeModal(modalId) {
+  document.getElementById(modalId).style.display = 'none';
+}
