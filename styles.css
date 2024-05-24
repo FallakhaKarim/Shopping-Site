@@ -10,14 +10,15 @@ header {
     color: white;
     padding: 1em 0;
     text-align: center;
+    position: relative;
 }
 
 .logo-image {
     position: absolute;
-    right: 0;
-    top: 0;
-    width: 111px;
-
+    right: 10px;
+    top: 10px;
+    width: 100px;
+    height: auto;
 }
 
 .wrapper {
@@ -109,8 +110,9 @@ header {
 
 /* Product image styling */
 .product img {
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    max-width: 100px;
+    height: auto;
     border-radius: 10px;
     margin-bottom: 1em;
     object-fit: cover;
@@ -193,6 +195,7 @@ header {
 .modal-image {
     width: 200px;
     height: 200px;
+    height: auto;
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 1em;
@@ -225,5 +228,65 @@ footer > p {
 }
   
   
-  
+@media (max-width: 768px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
+    .logo-image {
+        position: static;
+        margin-bottom: 10px;
+    }
+    
+    .intro-box {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .intro-text {
+        padding: 0;
+    }
+
+    .intro-image img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer > p {
+        margin-left: 0;
+    }
+
+    footer .contact-us {
+        order: 1;
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .intro-box {
+        padding: 1em;
+    }
+
+    .product img {
+        max-width: 80px;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 10px;
+        margin: 20px 10px; /* Add margin to prevent it from being too close to the edges */
+        top: 50px; /* Adjust this value to elevate the modal */
+
+    }
+
+    .modal-image {
+        max-width: 150px;
+    }
+}
